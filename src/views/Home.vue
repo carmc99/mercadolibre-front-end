@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div class="home">Home</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ItemService from "../services/ItemService";
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+  name: "Home",
+  data() {
+    return {
+      items: [],
+    };
+  },
+  async mounted() {
+    await ItemService.getAll(1)
+      .then((response) => {
+        console.table(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+};
 </script>

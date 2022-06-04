@@ -2,7 +2,7 @@ import Axios from "@/plugins/axiosMethods";
 const RESOURCE_NAME = "item";
 
 class ItemService {
-  getAll(paginationToken) {
+  getAll() {
     return Axios.get(RESOURCE_NAME, { headers: "" });
   }
   getById(id) {
