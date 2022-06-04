@@ -1,5 +1,5 @@
 import axios from "axios";
-const endPoint = "localhost";
+const endPoint = "https://api.mercadolibre.com/";
 
 export default {
   async get(path, options) {
